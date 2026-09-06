@@ -1,6 +1,5 @@
 package com.example.itws.dto;
 
-import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.*;
 
 public class AnimeDTO {

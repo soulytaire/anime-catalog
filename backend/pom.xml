@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>itws-backend</artifactId>
+    <artifactId>anime-catalog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>itws-backend</name>
     <description>ITWS Project Backend Starter Template</description>

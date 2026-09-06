@@ -1,11 +1,31 @@
+# IDEs and Editors
 .idea/
 *.iml
 .vscode/
 .classpath
 .project
 .settings/
-target/
-build/
+
+# Build and Compiled Output
+**/target/
+**/build/
+**/dist/
+**/tmp/
+**/out-tsc/
 *.jar
 *.war
+
+# Node & Dependencies
+**/node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Angular Caches & Logs
+**/.angular/
+.sass-cache/
+/coverage
 *.log
+
+# System Files
+.DS_Store
+Thumbs.db
