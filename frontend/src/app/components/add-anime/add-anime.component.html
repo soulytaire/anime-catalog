@@ -1,0 +1,112 @@
+<div class="form-container">
+  <div class="header">
+    <a routerLink="/" class="back-link">← Back to Catalog</a>
+    <h2>Add New Entry</h2>
+  </div>
+
+
+  <div class="card-section">
+    <h3>1. Add New Studio (Optional)</h3>
+    <div class="inline-form">
+      <input type="text" [(ngModel)]="newStudioName" placeholder="Studio name (e.g. MAPPA)" class="input-field">
+      <button (click)="onAddStudio()" class="btn-secondary">Add Studio</button>
+    </div>
+  </div>
+
+  
+  <div class="card-section">
+    <h3>2. Anime / Movie Details</h3>
+    <form (ngSubmit)="onSubmitAnime()" class="anime-form">
+      <div class="form-group">
+        <label>Title *</label>
+        <input type="text" [(ngModel)]="animeData.title" name="title" required class="input-field">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Format</label>
+          <select [(ngModel)]="animeData.format" name="format" class="input-field">
+            <option value="TV-series">TV Series</option>
+            <option value="Movie">Movie</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Studio *</label>
+          <select [(ngModel)]="animeData.studioId" name="studioId" required class="input-field">
+            <option *ngFor="let s of studios" [value]="s.id">{{ s.name }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Episodes</label>
+          <input type="number" [(ngModel)]="animeData.episodes" name="episodes" min="1" class="input-field">
+        </div>
+
+        <div class="form-group">
+          <label>Score (0 - 10)</label>
+          <input type="number" step="0.1" [(ngModel)]="animeData.score" name="score" min="0" max="10" class="input-field">
+        </div>
+      </div>
+
+      <div class="form-group">
+  <label>Poster Image (URL or Local File)</label>
+  
+  <div class="image-input-options">
+    
+    <input 
+      type="text" 
+      [(ngModel)]="animeData.imageUrl" 
+      (input)="onUrlInput()" 
+      name="imageUrl" 
+      placeholder="https://i.pinimg.com/originals/...png" 
+      class="input-field"
+    >
+
+    <div class="divider">OR</div>
+
+    
+    <input 
+      type="file" 
+      (change)="onFileSelected($event)" 
+      accept="image/*" 
+      class="file-field"
+    >
+  </div>
+
+  
+  <div class="preview-container" *ngIf="animeData.imageUrl">
+    <span class="preview-label">Image Preview:</span>
+    <div class="preview-box">
+      <img 
+        [src]="animeData.imageUrl" 
+        (load)="onImageLoadSuccess()" 
+        (error)="onImageLoadError()" 
+        alt="Poster Preview" 
+        class="preview-img"
+      >
+    </div>
+    
+    
+    <p class="status-text success" *ngIf="imageValid === true">
+      ✓ Image loaded successfully!
+    </p>
+    <p class="status-text error" *ngIf="imageValid === false">
+      ✕ Failed to load image from this URL.
+    </p>
+  </div>
+</div>
+  
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox" [(ngModel)]="animeData.isOngoing" name="isOngoing">
+          Is Ongoing
+        </label>
+      </div>
+
+      <button type="submit" class="btn-primary">Save to Catalog</button>
+    </form>
+  </div>
+</div>

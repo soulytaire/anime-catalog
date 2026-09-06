@@ -1,0 +1,48 @@
+.app-header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 20px 48px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  
+  .logo {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #2c3e35;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      transform: translateY(-2px);
+      color: #5D866C;
+    }
+  }
+
+  .add-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #5e8b72;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(94, 139, 114, 0.2);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #4a725c;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.main-content {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}

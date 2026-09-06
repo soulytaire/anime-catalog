@@ -1,0 +1,16 @@
+.catalog-container {
+  padding: 32px;
+
+  .page-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: #2b2b2b;
+  }
+
+  .anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+  }
+}

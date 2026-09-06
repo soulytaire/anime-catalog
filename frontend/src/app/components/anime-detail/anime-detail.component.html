@@ -1,0 +1,64 @@
+<div class="detail-container" *ngIf="anime; else loadingOrError">
+  <div class="detail-header">
+    <a routerLink="/" class="back-btn">
+      <svg class="arrow-icon" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2.5" 
+      stroke-linecap="round" 
+      stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Back to List</span>
+    </a>
+    <button (click)="onDelete()" class="delete-btn">🗑 Delete Anime</button>
+  </div>
+
+  <div class="detail-card">
+    <div class="poster-wrapper">
+      <img 
+        [src]="posterUrl" 
+        (error)="onImageError($event)" 
+        [alt]="anime.title" 
+        class="poster-img">
+    </div>
+
+    
+    <div class="info-wrapper">
+      <h1 class="title">{{ anime.title }}</h1>
+      
+      <div class="tag-type" *ngIf="displayFormat"> {{ displayFormat }}</div>
+      <div class="tag-status" *ngIf="anime.isOngoing">Ongoing</div>
+
+      <div class="score-row" *ngIf="anime.score">
+        <span class="star">★</span>
+        <span class="score-value">{{ anime.score }}</span>
+      </div>
+
+      <div class="meta-info">
+        <p *ngIf="anime.episodes && anime.episodes > 1">
+          <span class="label">Episodes:</span> {{ anime.episodes }}
+        </p>
+
+        <!-- <p *ngIf="anime.genres && anime.genres.length">
+          <span class="label">Genres:</span> {{ anime.genres.join(', ') }}
+        </p> -->
+        
+        <p *ngIf="anime.studioName">
+          <span class="label">Studio:</span> {{ anime.studioName }}
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingOrError>
+  <div class="loading-state">
+    <p *ngIf="loading">Loading...</p>
+    <p *ngIf="!loading && !anime">Couldn't find anime with such ID.</p>
+    <a routerLink="/" class="back-btn">Back to list</a>
+  </div>
+</ng-template>

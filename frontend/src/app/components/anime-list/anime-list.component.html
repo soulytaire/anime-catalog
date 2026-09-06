@@ -1,0 +1,10 @@
+<div class="catalog-container">
+  <h1 class="page-title">Be the First to Watch</h1>
+  
+  <div class="anime-grid">
+    <app-anime-card 
+      *ngFor="let item of animeList" 
+      [anime]="item">
+    </app-anime-card>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="anime-card" *ngIf="anime" [routerLink]="['/anime', anime.id]">
+  <div class="poster-container">
+
+    <div class="badges-group">
+      <span class="badge ep-badge" *ngIf="anime.episodes && anime.episodes > 1">
+        {{ anime.episodes }} ep
+      </span>
+
+      <!-- <span class="badge format-badge" *ngIf="anime.format">
+        {{ anime.format }}
+      </span> -->
+      
+      <span class="badge ongoing-badge" *ngIf="anime.isOngoing">Ongoing</span>
+    </div>
+
+ 
+    <img 
+      [src]="posterUrl" 
+      (error)="onImageError($event)"
+      [alt]="anime.title" 
+      class="poster">
+  </div>
+
+  <div class="info">
+    <h3 class="title">{{ anime.title }}</h3>
+  </div>
+
+</div>
